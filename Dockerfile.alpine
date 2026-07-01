@@ -1,10 +1,7 @@
 ARG ALPINE_VERSION=3.19
 
 FROM docker.io/library/alpine:${ALPINE_VERSION}
-ARG TARGETARCH
-ARG TARGETOS
-ARG TARGETVARIANT
-COPY dist/shiori_${TARGETOS}_${TARGETARCH}${TARGETVARIANT}/shiori /usr/bin/shiori
+COPY dist/shiori_linux_amd64_v1/shiori /usr/bin/shiori
 RUN apk add --no-cache ca-certificates tzdata && \
     chmod +x /usr/bin/shiori && \
     rm -rf /tmp/* && \
