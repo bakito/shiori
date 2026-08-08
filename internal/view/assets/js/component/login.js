@@ -34,12 +34,21 @@ const template = `
             </a>
         </div>
     </div>
+    <footer class="login-footer" v-if="version !== ''">
+        <p>{{version}}</p>
+    </footer>
 </div>
 `;
 
 export default {
 	name: "login-view",
 	template,
+	props: {
+		version: {
+			type: String,
+			default: "",
+		},
+	},
 	data() {
 		return {
 			error: "",
